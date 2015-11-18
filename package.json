@@ -1,0 +1,24 @@
+{
+  "name": "programa-podemos-2015",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joker-x/programa-podemos-2015.git"
+  },
+  "author": "",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/joker-x/programa-podemos-2015/issues"
+  },
+  "homepage": "https://github.com/joker-x/programa-podemos-2015#readme",
+  "dependencies": {
+    "csv-parse": "^1.0.0",
+    "ejs": "^2.3.4",
+    "slug": "^0.9.1"
+  }
+}
