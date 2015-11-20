@@ -19,6 +19,8 @@
   "dependencies": {
     "csv-parse": "^1.0.0",
     "ejs": "^2.3.4",
+    "html-minifier": "^1.0.0",
+    "lodash": "^3.10.1",
     "slug": "^0.9.1"
   }
 }

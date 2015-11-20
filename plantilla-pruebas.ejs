@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style>
+		.titulo-medida, .medidas-programa {float:left;}
+		h4 {font-size: 2em; margin: 0 0 0.25em; cursor: pointer;}
+		.medidas-programa {border:1px solid #eee; border-left: 4px solid orange; padding: 1em 2em; width: 75%;}
+		.numero-medida {color:#aaa; font-size: 3em; position: absolute;}
+		.categoria-medida a {color: #ccc; font-weight: bold; padding-right: 1em; text-decoration: none;}
+		.categoria-medida a:hover, .categoria-medida a.activo {color: #612d62;}
+		.categoria-propuestas a {color: #999; text-decoration: none;}
+		.categoria-propuestas a:hover, .categoria-propuestas a.activo {color: #612d62;}
+		.categoria-propuestas a .numero-propuestas {background-color: #999; color: white; padding: 0.25em; border-radius: 5px; margin-left: 0.2em;}
+		.categoria-propuestas a:hover .numero-propuestas {background-color: #612d62;}
+		.titulo-medida {padding-left: 6em;}
+		.categorias-programa {float: right; width: 38%;}
+		.medidas {float: left; width: 60%;}
+		.descripcion-medida { display: none; }
+
+
+		.btn {
+		  display: inline-block;
+		  -webkit-border-radius: 28;
+		  -moz-border-radius: 28;
+		  border-radius: 28px;
+		  font-family: Arial;
+		  color: #878f94;
+		  font-size: 16px;
+		  padding: 10px 16px 10px 16px;
+		  margin: 0 10px 10px 0;
+		  border: solid #878f94 2px;
+		  text-decoration: none;
+		}
+
+		.btn:hover, .categoria-propuestas a.activo {
+		  background: #d6c1eb;
+		  text-decoration: none;
+		}
+    </style>
+</head>
+
+<body>
+    
+<div class="programa-elecciones-generales">
+
+    <div>
+        <h3>Ramas</h3>
+        <div class="ramas">
+		<% ejes.forEach(function(eje) { %>
+        	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= eje.nombre %></a>
+		<% }); %>
+        </div>
+    </div>
+
+    <div class="categorias-programa">
+        <h3>Propuestas</h3>
+        <div class="categoria-propuestas">
+		<% etiquetas.forEach(function(categoria) { %>
+        	<a href="#" class="btn" data-rel="<%= categoria.slug %>"><%= categoria.nombre %></a>
+		<% }); %>
+        </div>
+    </div>
+
+	<div class="medidas">   
+	<% medidas.forEach(function(medida){ %>
+		<div id="medida-<%= medida.num %>"class="medidas-programa area-programa" data-eje="<%= medida.eje %>">
+		    <div class="numero-medida"><%= medida.num %></div>
+		    <div class="titulo-medida">
+		        <h4><%= medida.titulo %></h4>
+		        <div class="categoria-medida">
+					<% medida.etiquetas.forEach(function(categoria) { %>
+		            <a href="#" data-rel="<%= categoria.slug %>"><span><%= categoria.nombre %></span></a>
+					<% }); %>
+		        </div>
+		        <div class="descripcion-medida">
+					<%- medida.descripcion %>
+				</div>
+		    </div>
+		</div>
+	<% }); %>
+	</div>
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+
+$(function() {
+	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
+		var descripcion = $(this).parent().find('.descripcion-medida');
+		($(descripcion).is(':visible'))?$(descripcion).slideUp():$(descripcion).slideDown();
+	});
+	$('.categoria-propuestas a').on('click', function(e) {
+		e.preventDefault();
+		var categoria = $(this).data('rel');
+		$('.categoria-propuestas a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-programa').hide();
+		$('.categoria-medida a').removeClass('activo');
+		$('.medidas-programa [data-rel="'+categoria+'"]').each(function() {
+			$(this).addClass('activo');
+			$(this).parents('.medidas-programa').fadeIn();
+		});
+	});
+	$('.ramas a').on('click', function(e) {
+		e.preventDefault();
+		var eje = $(this).data('rel');
+		$(this).parents('a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-programa').hide();
+		$('[data-eje="'+eje+'"]').each(function() {
+			$(this).fadeIn();
+		});
+	});
+});
+
+</script>
+
+
+</body>

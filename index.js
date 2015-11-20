@@ -2,12 +2,14 @@
 var fs = require('fs') // IO ficheros
   , parser = require('csv-parse') // carga CSV en array
   , slug = require('slug') // genera slug
-  , ejs = require ('ejs'); // motor de plantillas
+  , _ = require ('lodash') // funciones manipulación de colecciones
+  , ejs = require ('ejs') // motor de plantillas
+  , minify = require('html-minifier').minify; // reducir html
 
 // CONFIGURACIÓN
 var FICH_DATA = __dirname + '/data/programa.csv';
 var DELIMITER = '\t';
-var PLANTILLA = __dirname + '/plantilla.ejs';
+var PLANTILLA = __dirname + '/plantilla-wp.ejs';
 
 var etiquetas = require('./data/etiquetas.json');
 //añadimos slugs
@@ -35,14 +37,38 @@ function(err, medidas_csv) {
 		if (num) {
 			var medida = {
 				num: num,
-				titulo: (medidas_csv[i][1])?medidas_csv[i][1]:"",
-				descripcion: (medidas_csv[i][2])?medidas_csv[i][2]:"",
+				eje: (medidas_csv[i][1])?medidas_csv[i][1]:"",
+				titulo: (medidas_csv[i][2])?medidas_csv[i][2]:"",
+				descripcion: (medidas_csv[i][3])?medidas_csv[i][3]:"",
 				etiquetas: dame_etiquetas(num)
 			};
 			medidas.push(medida);
 		}
 	}
-	var pagina = ejs.render(fs.readFileSync(PLANTILLA, "utf8"), {medidas: medidas, etiquetas: etiquetas});
-	console.log(pagina);
+	var ejes = _.uniq(_.pluck(medidas, 'eje'));
+	//ejes = _.zipObject(ejes, [30, 40]);
+	ejes = _.map (ejes, function(eje) {
+		return {
+			nombre: eje,
+			slug: slug(eje).toLowerCase()
+		};
+	});
+	var pagina = ejs.render(fs.readFileSync(PLANTILLA, "utf8"), {medidas: medidas, etiquetas: etiquetas, ejes: ejes});
+	fs.writeFileSync(__dirname+'/web/index.html', pagina);
+	fs.writeFileSync(__dirname+'/web/index.min.html', minify(pagina, { 
+		collapseWhitespace: true, 
+		removeAttributeQuotes: true }));
+/*
+  filtros por ejes
+
+	_.each(ejes, function(eje){
+		var medidas_por_eje = _.filter(medidas, function(medida) {
+			return (medida.eje == eje.nombre)
+		});
+		var pagina = ejs.render(fs.readFileSync(PLANTILLA, "utf8"), {medidas: medidas_por_eje, etiquetas: etiquetas, ejes: ejes});
+		fs.writeFileSync(__dirname+'/web/'+eje.slug+'.htm', pagina);
+	}); 
+*/
+	//console.log(pagina);
 });
 

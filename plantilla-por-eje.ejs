@@ -45,6 +45,15 @@
     
 <div class="programa-elecciones-generales">
 
+    <div>
+        <h3>Ramas</h3>
+        <div class="ramas">
+		<% ejes.forEach(function(eje) { %>
+        	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= eje.nombre %></a>
+		<% }); %>
+        </div>
+    </div>
+
     <div class="categorias-programa">
         <h3>Propuestas</h3>
         <div class="categoria-propuestas">
@@ -56,7 +65,7 @@
 
 	<div class="medidas">   
 	<% medidas.forEach(function(medida){ %>
-		<div id="medida-<%= medida.num %>"class="medidas-programa area-programa <%= medida.etiquetas.forEach(function(categoria) { categoria.slug }) %>">
+		<div id="medida-<%= medida.num %>"class="medidas-programa area-programa" data-eje="<%= medida.eje %>">
 		    <div class="numero-medida"><%= medida.num %></div>
 		    <div class="titulo-medida">
 		        <h4><%= medida.titulo %></h4>
@@ -94,6 +103,16 @@ $(function() {
 		$('.medidas-programa [data-rel="'+categoria+'"]').each(function() {
 			$(this).addClass('activo');
 			$(this).parents('.medidas-programa').fadeIn();
+		});
+	});
+	$('.ramas a').on('click', function(e) {
+		e.preventDefault();
+		var eje = $(this).data('rel');
+		$(this).parents('a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-programa').hide();
+		$('[data-eje="'+eje+'"]').each(function() {
+			$(this).fadeIn();
 		});
 	});
 });

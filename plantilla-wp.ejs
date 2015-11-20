@@ -1,0 +1,78 @@
+  
+<div class="programa-elecciones-generales">
+
+    <div>
+        <h3>Ramas</h3>
+        <div class="ramas">
+		<% ejes.forEach(function(eje) { %>
+        	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= eje.nombre %></a>
+		<% }); %>
+        </div>
+    </div>
+
+    <div class="categorias-programa">
+        <h3>Propuestas</h3>
+        <div class="categoria-propuestas">
+		<% etiquetas.forEach(function(categoria) { %>
+        	<a href="#" class="btn" data-rel="<%= categoria.slug %>"><%= categoria.nombre %></a>
+		<% }); %>
+        </div>
+    </div>
+
+	<div class="medidas">   
+	<% medidas.forEach(function(medida){ %>
+		<div id="medida-<%= medida.num %>"class="medidas-programa" data-eje="<%= medida.eje %>">
+		    <div class="numero-medida"><%= medida.num %></div>
+		    <div class="titulo-medida">
+		        <h4><%= medida.titulo %></h4>
+		        <div class="categoria-medida">
+					<% medida.etiquetas.forEach(function(categoria) { %>
+		            <a href="#" data-rel="<%= categoria.slug %>"><span><%= categoria.nombre %></span></a>
+					<% }); %>
+		        </div>
+		        <div class="descripcion-medida">
+					<%- medida.descripcion %>
+				</div>
+		    </div>
+		</div>
+	<% }); %>
+	</div>
+
+
+</div>
+
+<script>
+
+;(function($) {
+	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
+		var descripcion = $(this).parent().find('.descripcion-medida');
+		($(descripcion).is(':visible'))?$(descripcion).slideUp():$(descripcion).slideDown();
+	});
+	$('.categoria-propuestas a').on('click', function(e) {
+		e.preventDefault();
+		var categoria = $(this).data('rel');
+		$('.categoria-propuestas a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-programa').hide();
+		$('.categoria-medida a').removeClass('activo');
+		$('.medidas-programa [data-rel="'+categoria+'"]').each(function() {
+			$(this).addClass('activo');
+			$(this).parents('.medidas-programa').fadeIn();
+		});
+	});
+	$('.ramas a').on('click', function(e) {
+		e.preventDefault();
+		var eje = $(this).data('rel');
+		$(this).parents('a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-programa').hide();
+		$('[data-eje="'+eje+'"]').each(function() {
+			$(this).fadeIn();
+		});
+	});
+})(jQuery);
+
+</script>
+
+
+</body>
