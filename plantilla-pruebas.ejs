@@ -46,19 +46,9 @@
 <div class="programa-elecciones-generales">
 
     <div>
-        <h3>Ramas</h3>
         <div class="ramas">
 		<% ejes.forEach(function(eje) { %>
         	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= eje.nombre %></a>
-		<% }); %>
-        </div>
-    </div>
-
-    <div class="categorias-programa">
-        <h3>Propuestas</h3>
-        <div class="categoria-propuestas">
-		<% etiquetas.forEach(function(categoria) { %>
-        	<a href="#" class="btn" data-rel="<%= categoria.slug %>"><%= categoria.nombre %></a>
 		<% }); %>
         </div>
     </div>
@@ -81,6 +71,15 @@
 		</div>
 	<% }); %>
 	</div>
+
+    <div class="categorias-programa">
+        <h3>Propuestas</h3>
+        <div class="categoria-propuestas">
+		<% etiquetas.forEach(function(categoria) { %>
+        	<a href="#" class="btn" data-rel="<%= categoria.slug %>"><%= categoria.nombre %></a>
+		<% }); %>
+        </div>
+    </div>
 
 
 </div>
