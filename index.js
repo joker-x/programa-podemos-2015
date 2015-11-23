@@ -11,7 +11,7 @@ var FICH_DATA = __dirname + '/data/programa.csv';
 var DELIMITER = '\t';
 var PLANTILLA = __dirname + '/plantilla-wp.ejs';
 
-var etiquetas = require('./data/etiquetas.json');
+var etiquetas = require(__dirname + '/data/etiquetas.json');
 //añadimos slugs
 etiquetas.forEach(function(etiqueta) {
 	etiqueta["slug"] = slug(etiqueta.nombre).toLowerCase();
@@ -69,6 +69,5 @@ function(err, medidas_csv) {
 		fs.writeFileSync(__dirname+'/web/'+eje.slug+'.htm', pagina);
 	}); 
 */
-	//console.log(pagina);
 });
 

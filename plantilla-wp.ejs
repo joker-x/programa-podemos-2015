@@ -3,9 +3,9 @@
 
     <div>
         <div class="ramas">
-		<% ejes.forEach(function(eje) { %>
+        <% ejes.forEach(function(eje) { %>
         	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= eje.nombre %></a>
-		<% }); %>
+        <% }); %>
         </div>
     </div>
 
@@ -16,24 +16,24 @@
 		    <div class="titulo-medida">
 		        <h4><%= medida.titulo %></h4>
 		        <div class="categoria-medida">
-					<% medida.etiquetas.forEach(function(categoria) { %>
+            <% medida.etiquetas.forEach(function(categoria) { %>
 		            <a href="#" data-rel="<%= categoria.slug %>"><span><%= categoria.nombre %></span></a>
-					<% }); %>
+            <% }); %>
 		        </div>
 		        <div class="descripcion-medida">
-					<%- medida.descripcion %>
-				</div>
+              <%- medida.descripcion %>
+            </div>
 		    </div>
 		</div>
 	<% }); %>
 	</div>
 
     <div class="categorias-programa">
-        <h3>Propuestas</h3>
+        <h3>Temas</h3>
         <div class="categoria-propuestas">
-		<% etiquetas.forEach(function(categoria) { %>
+        <% etiquetas.forEach(function(categoria) { %>
         	<a href="#" class="btn" data-rel="<%= categoria.slug %>"><%= categoria.nombre %></a>
-		<% }); %>
+        <% }); %>
         </div>
     </div>
 

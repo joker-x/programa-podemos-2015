@@ -1,5 +1,14 @@
 [
   {
+    "nombre": "Principales propuestas",
+    "medidas": [
+      1,
+      44,
+      78
+    ]
+  }
+,
+  {
     "nombre": "Administraciones públicas",
     "medidas": [
       4,
