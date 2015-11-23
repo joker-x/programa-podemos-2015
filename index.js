@@ -32,7 +32,7 @@ function(err, medidas_csv) {
 	if (err) return;
 	var medidas = [];
 	var total_medidas = medidas_csv.length;
-	for (var i=0; i<total_medidas; i++) {
+	for (var i=1; i<total_medidas; i++) {
 		var num = parseInt(medidas_csv[i][0]);
 		if (num) {
 			var medida = {

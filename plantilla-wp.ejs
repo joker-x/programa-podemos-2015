@@ -17,11 +17,16 @@
 		        <h4><%= medida.titulo %></h4>
 		        <div class="categoria-medida">
             <% medida.etiquetas.forEach(function(categoria) { %>
-		            <a href="#" data-rel="<%= categoria.slug %>"><span><%= categoria.nombre %></span></a>
+		            <a href="#<%= medida.num %>" data-rel="<%= categoria.slug %>"><span><%= categoria.nombre %></span></a>
             <% }); %>
 		        </div>
 		        <div class="descripcion-medida">
               <%- medida.descripcion %>
+              <div class="social">
+                Compartir en 
+                <a href=""><i class="fa fa-facebook-official"></i></a>
+                <a href=""><i class="fa fa-twitter"></i></a>
+              </div>
             </div>
 		    </div>
 		</div>
