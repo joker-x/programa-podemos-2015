@@ -11473,9 +11473,9 @@
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
     var medida = $(this).parents('.medidas-programa');
-    var title = encodeURI($(medida).find('.titulo-medida').text());
+    var title = encodeURI($(medida).find('.titulo-medida h4').text());
     var desc = encodeURI($(medida).find('.descripcion-medida').text());
-    var url = encodeURI(url_base + '?#'+$(medida).attr('id'));
+    var url = encodeURI(url_base + '?#'+$(medida).id);
     var image = 'https://unpaiscontigo.es/wp-content/themes/html5blank-stable/img/eje-1.png';
     window.open('https://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
@@ -11484,8 +11484,8 @@
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
     var medida = $(this).parents('.medidas-programa');
-    var url = encodeURI(url_base + '?#'+$(medida).attr('id'));
-    var tweet = encodeURI($(medida).find('.titulo-medida').text()) + ' ' + url;
+    var url = encodeURI(url_base + '?#'+$(medida).id);
+    var tweet = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
     window.open('https://twitter.com/home?status=' + tweet, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
 })(jQuery);
