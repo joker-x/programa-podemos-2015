@@ -23,7 +23,6 @@
 		        <div class="descripcion-medida">
               <%- medida.descripcion %>
               <div class="social">
-                Compartir en 
                 <a href=""><i class="fa fa-facebook-official"></i></a>
                 <a href=""><i class="fa fa-twitter"></i></a>
               </div>
@@ -55,7 +54,7 @@
 		var descripcion = $(this).parent().find('.descripcion-medida');
 		($(descripcion).is(':visible'))?$(descripcion).slideUp():$(descripcion).slideDown();
 	});
-	$('.categoria-propuestas a').on('click', function(e) {
+	$('.categoria-propuestas a, .categoria-medida a').on('click', function(e) {
 		e.preventDefault();
 		var categoria = $(this).data('rel');
 		$('.categoria-propuestas a').removeClass('activo');
