@@ -118,7 +118,8 @@
   for (i=0; i<medidas.length; i++) {
     $('.medidas-programa').hide();
     $('#medida-'+medidas[i]).fadeIn(function() {
-      $('#medida-'+medidas[i]+' h4').click();
+      //$('#medida-'+medidas[i]+' h4').click();
+      $('#medida-'+medidas[i]+' .descripcion-medida').show();
     });
   }
 })(jQuery);
