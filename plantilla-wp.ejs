@@ -117,8 +117,9 @@
   var medidas =  parsear_url();
   for (i=0; i<medidas.length; i++) {
     $('.medidas-programa').hide();
-    $('#medida-'+medidas[i]).fadeIn();
-    $('#medida-'+medidas[i]+' .description').show();
+    $('#medida-'+medidas[i]).fadeIn(function() {
+      $('#medida-'+medidas[i]+' .descripcion-medida').slideDown();
+    });
   }
 })(jQuery);
 
