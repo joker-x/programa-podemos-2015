@@ -68,7 +68,7 @@
     $('.medidas-programa').hide();
     $('#medida-'+medidas[i]).fadeIn(function() {
       //$('#medida-'+medidas[i]+' h4').click();
-      $('#medida-'+medidas[i]+' .titulo-medida .descripcion-medida').show();
+      $(this).find('.descripcion-medida').slideDown();
     });
   }
 })(jQuery);</script>
