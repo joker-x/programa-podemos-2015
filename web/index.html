@@ -11055,7 +11055,7 @@
 
 ;(function($) {
 
-  var url_base = 'https://unpaiscontigo.es/programa/';
+  var url_base = 'http://unpaiscontigo.es/programa/';
 
 	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
 		var descripcion = $(this).parent().find('.descripcion-medida');
@@ -11091,20 +11091,38 @@
     var medida = $(this).parents('.medidas-programa');
     var title = encodeURI($(medida).find('.titulo-medida h4').text());
     var descr = encodeURI($(medida).find('.descripcion-medida').text());
-    var url = encodeURI(url_base + $(medida).attr('id'));
+    var url = encodeURI(url_base + '?medida=' + $(medida).attr('id'));
     var image = 'https://unpaiscontigo.es/wp-content/themes/html5blank-stable/img/eje-1.png';
     //window.open('https://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + '&amp;t=' + title, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
   $('.social .fa-twitter').parent().on('click', function(e) {
 		e.preventDefault();
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
     var medida = $(this).parents('.medidas-programa');
-    var url = encodeURI(url_base + $(medida).attr('id'));
+    var num_medida = parseInt($(medida).find('.numero-medida').text());
+    var url = encodeURI(url_base + '?medida=' + $(medida).attr('id'));
     var tweet = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
     window.open('https://twitter.com/home?status=' + tweet, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
+  // devuelve array con las medidas a mostrar
+  function parsear_url() {
+    var medidas = window.location.search;
+    if (medidas.indexOf('medida=') > -1) {
+      medidas=medidas.split('medida=');
+      medidas=[parseInt(medidas[1])];
+    } else {
+      medidas=[];
+    }
+    return medidas;    
+  }
+  var medidas =  parsear_url();
+  for (i=0; i<medidas.length; i++) {
+    $('.medidas-programa').hide();
+    $('#medida-'+medidas[i]).fadeIn();
+    $('#medida-'+medidas[i]+' .description').show();
+  }
 })(jQuery);
 
 </script>
