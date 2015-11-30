@@ -1700,7 +1700,7 @@ Contratación.</li>
 		e.preventDefault();
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
-    var medida = $(this).parents('.medidas-programa');
+    var medida = $(this).parents('.medidas-rescate');
     var num_medida = parseInt($(medida).find('.numero-medida').text());
     var url = encodeURI(url_base + '?medida=' + num_medida);
     var tweet = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
