@@ -1,0 +1,125 @@
+  
+<div class="plan-rescate-ciudadano">
+
+    <div>
+        <div class="ramas">
+        <% ejes.forEach(function(eje) { %>
+        	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= eje.nombre %></a>
+        <% }); %>
+        </div>
+    </div>
+
+	<div class="medidas">   
+	<% medidas.forEach(function(medida){ %>
+		<div id="medida-<%= medida.num %>" class="medidas-rescate" data-eje="<%= medida.eje %>">
+		    <div class="numero-medida"><%= medida.num %></div>
+		    <div class="titulo-medida">
+		      <h4><%= medida.titulo %></h4>
+		      <div class="descripcion-medida">
+                <%- medida.descripcion %>
+                <div class="social">
+                  <a href=""><i class="fa fa-facebook-official"></i></a>
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                </div>
+              </div>
+		    </div>
+		</div>
+	<% }); %>
+	</div>
+
+    <div class="categorias-rescate">
+
+        <h3><i class="fa fa-file-pdf-o"></i> Descargas</h3>
+        <p><a href="" class="pdf" target=_blank>Plan de rescate ciudadano</a></p>
+
+    </div>
+
+
+</div>
+
+<script>
+
+;(function($) {
+
+  var url_base = 'http://unpaiscontigo.es/plan-rescate-ciudadano/';
+
+  function get_id(num_bloque) {
+    return parseInt(parseFloat(num_bloque)*10.0);
+  } 
+
+	$('.medidas-rescate .titulo-medida h4').on('click', function(e) {
+		var descripcion = $(this).parent().find('.descripcion-medida');
+		($(descripcion).is(':visible'))?$(descripcion).slideUp():$(descripcion).slideDown();
+	});
+/*
+	$('.categoria-propuestas a, .categoria-medida a').on('click', function(e) {
+		e.preventDefault();
+		var categoria = $(this).data('rel');
+		$('.categoria-propuestas a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-rescate').hide();
+		$('.categoria-medida a').removeClass('activo');
+		$('.medidas-rescate [data-rel="'+categoria+'"]').each(function() {
+			$(this).addClass('activo');
+			$(this).parents('.medidas-rescate').fadeIn();
+		});
+	});
+*/
+	$('.ramas a').on('click', function(e) {
+		e.preventDefault();
+		var eje = $(this).data('rel');
+		$('.ramas a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-rescate').hide();
+		$('[data-eje="'+eje+'"]').each(function() {
+			$(this).fadeIn();
+		});
+	});
+  // social
+  $('.social .fa-facebook-official').parent().on('click', function(e) {
+		e.preventDefault();
+    var winTop = (screen.height / 2) - (350 / 2);
+    var winLeft = (screen.width / 2) - (520 / 2);
+    var medida = $(this).parents('.medidas-programa');
+    var title = encodeURI($(medida).find('.titulo-medida h4').text());
+    var descr = encodeURI($(medida).find('.descripcion-medida').text());
+    var num_medida = parseInt($(medida).find('.numero-medida').text());
+    var url = encodeURI(url_base + '?medida=' + num_medida);
+    var image = 'https://unpaiscontigo.es/wp-content/themes/html5blank-stable/img/eje-1.png';
+    //window.open('https://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + '&amp;t=' + title, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+  });
+  $('.social .fa-twitter').parent().on('click', function(e) {
+		e.preventDefault();
+    var winTop = (screen.height / 2) - (350 / 2);
+    var winLeft = (screen.width / 2) - (520 / 2);
+    var medida = $(this).parents('.medidas-programa');
+    var num_medida = parseInt($(medida).find('.numero-medida').text());
+    var url = encodeURI(url_base + '?medida=' + num_medida);
+    var tweet = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
+    window.open('https://twitter.com/home?status=' + tweet, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+  });
+  // devuelve array con las medidas a mostrar
+  function parsear_url() {
+    var medidas = window.location.search;
+    if (medidas.indexOf('medida=') > -1) {
+      medidas=medidas.split('medida=');
+      medidas=[parseFloat(medidas[1])];
+    } else {
+      medidas=[];
+    }
+    return medidas;    
+  }
+  var medidas =  parsear_url();
+  for (i=0; i<medidas.length; i++) {
+    $('.medidas-programa').hide();
+    $('#medida-'+get_id(medidas[i])).fadeIn(function() {
+      $(this).find('.descripcion-medida').delay(1000).slideDown();
+    });
+  }
+})(jQuery);
+
+</script>
+
+
+</body>
