@@ -3,15 +3,15 @@
 
     <div>
         <div class="ramas">
-        <% ejes.forEach(function(eje) { %>
-        	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= eje.nombre %></a>
-        <% }); %>
+        <% for (var i=1; i<ejes.length; i++) { %>
+        	<a href="#" class="btn" data-rel="<%= ejes[i].nombre %>"><%= ejes[i].nombre %></a>
+        <% } %>
         </div>
     </div>
 
 	<div class="medidas">   
 	<% medidas.forEach(function(medida){ %>
-		<div id="medida-<%= medida.num %>" class="medidas-rescate" data-eje="<%= medida.eje %>">
+		<div id="medida-<%= parseInt(parseFloat(medida.num)*10.0) %>" class="medidas-rescate" data-eje="<%= medida.eje %>">
 		    <div class="numero-medida"><%= medida.num %></div>
 		    <div class="titulo-medida">
 		      <h4><%= medida.titulo %></h4>
@@ -51,20 +51,6 @@
 		var descripcion = $(this).parent().find('.descripcion-medida');
 		($(descripcion).is(':visible'))?$(descripcion).slideUp():$(descripcion).slideDown();
 	});
-/*
-	$('.categoria-propuestas a, .categoria-medida a').on('click', function(e) {
-		e.preventDefault();
-		var categoria = $(this).data('rel');
-		$('.categoria-propuestas a').removeClass('activo');
-		$(this).addClass('activo');
-		$('.medidas-rescate').hide();
-		$('.categoria-medida a').removeClass('activo');
-		$('.medidas-rescate [data-rel="'+categoria+'"]').each(function() {
-			$(this).addClass('activo');
-			$(this).parents('.medidas-rescate').fadeIn();
-		});
-	});
-*/
 	$('.ramas a').on('click', function(e) {
 		e.preventDefault();
 		var eje = $(this).data('rel');
@@ -112,10 +98,13 @@
   }
   var medidas =  parsear_url();
   for (i=0; i<medidas.length; i++) {
-    $('.medidas-programa').hide();
+    $('.medidas-rescate').hide();
     $('#medida-'+get_id(medidas[i])).fadeIn(function() {
       $(this).find('.descripcion-medida').delay(1000).slideDown();
     });
+  }
+  if (medidas.length == 0) {
+    $('.medidas-rescate:first').find('.descripcion-medida').delay(1000).slideDown();
   }
 })(jQuery);
 
