@@ -1,0 +1,155 @@
+  
+<div class="programa-elecciones-generales">
+
+	<div class="idiomas">
+		<a href="http://unpaiscontigo.es/programa/"<% if (i18n.getLocale() == "es") { %> class="selected"<% } %>>Castellano</a>
+		<a href="http://unpaiscontigo.es/programa-ca/" <% if (i18n.getLocale() == "ca") { %> class="selected"<% } %>>Català/Valencià</a>
+		<a href="http://unpaiscontigo.es/programa-eu/" <% if (i18n.getLocale() == "eu") { %> class="selected"<% } %>>Euskera</a>
+		<a href="http://unpaiscontigo.es/programa-gl/" <% if (i18n.getLocale() == "gl") { %> class="selected"<% } %>>Galego</a>
+		<a href="http://unpaiscontigo.es/programa-ast/" <% if (i18n.getLocale() == "ast") { %> class="selected"<% } %>>Asturiano</a>
+		<a href="http://unpaiscontigo.es/programa-en/" <% if (i18n.getLocale() == "en") { %> class="selected"<% } %>>English</a>
+	</div>
+
+    <div>
+        <div class="ramas">
+        <% ejes.forEach(function(eje) { %>
+        	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= eje.nombre %></a>
+        <% }); %>
+        </div>
+    </div>
+
+	<div class="medidas">   
+	<% medidas.forEach(function(medida){ %>
+		<div id="medida-<%= medida.num %>" class="medidas-programa" data-eje="<%= medida.eje %>">
+		    <div class="numero-medida"><%= medida.num %></div>
+		    <div class="titulo-medida">
+		        <h4><%= medida.titulo %></h4>
+		        <div class="categoria-medida">
+            <% medida.etiquetas.forEach(function(categoria) { %>
+		            <a href="#<%= medida.num %>" data-rel="<%= categoria.slug %>"><span><%= i18n.__(categoria.nombre) %></span></a>
+            <% }); %>
+		        </div>
+		        <div class="descripcion-medida">
+              <%- medida.descripcion %>
+              <div class="social">
+                <a href=""><i class="fa fa-facebook-official"></i></a>
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href="" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+              </div>
+            </div>
+		    </div>
+		</div>
+	<% }); %>
+	</div>
+
+    <div class="categorias-programa">
+
+        <h3><i class="fa fa-file-pdf-o"></i> <%= i18n.__("Descargas") %></h3>
+        <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/12/Programa-Elecciones-Generales-Podemos-2015.pdf" class="pdf" target=_blank><%= i18n.__("Programa Electoral") %></a></p>
+        <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/11/programa_economica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Económica") %></a></p>
+        <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/11/programa_juridica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Jurídica") %></a></p>
+        <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/11/Programa_Cultura_Comunicacion_Podemos.pdf" class="pdf" target="_blank"><%= i18n.__("Programa de Cultura y Comunicación") %></a></p>
+
+        <h3><i class="fa fa-book"></i> Temas</h3>
+        <div class="categoria-propuestas">
+        <% etiquetas.forEach(function(categoria) { %>
+        	<a href="#" class="btn" data-rel="<%= categoria.slug %>"><%= i18n.__(categoria.nombre) %></a>
+        <% }); %>
+        </div>
+
+    </div>
+
+
+</div>
+
+<script>
+
+;(function($) {
+
+  //var url_base = 'http://unpaiscontigo.es/programa/';
+  var url_base = document.location.href;
+
+	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
+		var descripcion = $(this).parent().find('.descripcion-medida');
+		($(descripcion).is(':visible'))?$(descripcion).slideUp():$(descripcion).slideDown();
+	});
+	$('.categoria-propuestas a, .categoria-medida a').on('click', function(e) {
+		e.preventDefault();
+		var categoria = $(this).data('rel');
+		$('.categoria-propuestas a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-programa').hide();
+		$('.categoria-medida a').removeClass('activo');
+		$('.medidas-programa [data-rel="'+categoria+'"]').each(function() {
+			$(this).addClass('activo');
+			$(this).parents('.medidas-programa').fadeIn();
+		});
+	});
+	$('.ramas a').on('click', function(e) {
+		e.preventDefault();
+		var eje = $(this).data('rel');
+		$('.ramas a').removeClass('activo');
+		$(this).addClass('activo');
+		$('.medidas-programa').hide();
+		$('[data-eje="'+eje+'"]').each(function() {
+			$(this).fadeIn();
+		});
+	});
+  // social
+  $('.social .fa-facebook-official').parent().on('click', function(e) {
+		e.preventDefault();
+    var winTop = (screen.height / 2) - (350 / 2);
+    var winLeft = (screen.width / 2) - (520 / 2);
+    var medida = $(this).parents('.medidas-programa');
+    var title = encodeURI($(medida).find('.titulo-medida h4').text());
+    var descr = encodeURI($(medida).find('.descripcion-medida').text());
+    var num_medida = parseInt($(medida).find('.numero-medida').text());
+    var url = encodeURI(url_base + '?medida=' + num_medida);
+    var image = 'https://unpaiscontigo.es/wp-content/themes/html5blank-stable/img/eje-1.png';
+    //window.open('https://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + '&amp;t=' + title, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+  });
+  $('.social .fa-twitter').parent().on('click', function(e) {
+		e.preventDefault();
+    var winTop = (screen.height / 2) - (350 / 2);
+    var winLeft = (screen.width / 2) - (520 / 2);
+    var medida = $(this).parents('.medidas-programa');
+    var num_medida = parseInt($(medida).find('.numero-medida').text());
+    var url = encodeURI(url_base + '?medida=' + num_medida);
+    var tweet = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
+    window.open('https://twitter.com/home?status=' + tweet, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+  });
+  $('.social .fa-whatsapp').parent().on('click', function(e) {
+		e.preventDefault();
+    var winTop = (screen.height / 2) - (350 / 2);
+    var winLeft = (screen.width / 2) - (520 / 2);
+    var medida = $(this).parents('.medidas-programa');
+    var num_medida = parseInt($(medida).find('.numero-medida').text());
+    var url = encodeURI(url_base + '?medida=' + num_medida);
+    var texto = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
+    window.open('whatsapp://send?text=' + texto, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+  });
+  // devuelve array con las medidas a mostrar
+  function parsear_url() {
+    var medidas = window.location.search;
+    if (medidas.indexOf('medida=') > -1) {
+      medidas=medidas.split('medida=');
+      medidas=[parseInt(medidas[1])];
+    } else {
+      medidas=[];
+    }
+    return medidas;    
+  }
+  var medidas =  parsear_url();
+  for (i=0; i<medidas.length; i++) {
+    $('.medidas-programa').hide();
+    $('#medida-'+medidas[i]).fadeIn(function() {
+      $(this).find('.descripcion-medida').delay(1000).slideDown();
+    });
+  }
+})(jQuery);
+
+</script>
+
+
+</body>
