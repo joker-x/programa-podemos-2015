@@ -52,5 +52,16 @@
 	"Memoria Jurídica": "Memoria Jurídica",
 	"Programa de Cultura y Comunicación": "Programa de Cultura y Comunicación",
 	"Principales propuestas": "Principales propuestas",
-	"Democracia Económica": "Democracia Económica"
+	"Democracia Económica": "Democracia Económica",
+	"Temas": "Temas",
+	"Economic Democracy": "Economic Democracy",
+	"Social Democracy": "Social Democracy",
+	"Political Democracy": "Political Democracy",
+	"Citizens' Democracy": "Citizens' Democracy",
+	"International Democracy": "International Democracy",
+	"Regional And Municipal Proposals": "Regional And Municipal Proposals",
+	"Economic Democracy / A New Productive Model": "Economic Democracy / A New Productive Model",
+	"Social Democracy / Housing and utilities": "Social Democracy / Housing and utilities",
+	"Political democracy / Security": "Political democracy / Security",
+	"Proposals in the regional and municipal area / Castilla y León": "Proposals in the regional and municipal area / Castilla y León"
 }

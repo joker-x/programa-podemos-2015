@@ -46,5 +46,15 @@
 	"Memoria Económica": "Memoria Económica",
 	"Memoria Jurídica": "Memoria Jurídica",
 	"Programa de Cultura y Comunicación": "Programa de Cultura y Comunicación",
-	"Principales propuestas": "Principales propuestas"
+	"Principales propuestas": "Principales propuestas",
+	"Democracia Económica": "Democracia Económica",
+	"Democracia Social": "Democracia Social",
+	"Democracia Política": "Democracia Política",
+	"Democracia Ciudadana": "Democracia Ciudadana",
+	"Democracia Internacional": "Democracia Internacional",
+	"Propuestes D’ámbitu autonómicu y de Conceyu": "Propuestes D’ámbitu autonómicu y de Conceyu",
+	"Democracia económica / Modelu productivu nuevu": "Democracia económica / Modelu productivu nuevu",
+	"Democracia social / Vivienda y suministros": "Democracia social / Vivienda y suministros",
+	"Democracia política / Seguridá": "Democracia política / Seguridá",
+	"Propuestes d’ámbitu autonómicu y municipal / Castiella y Lleón": "Propuestes d’ámbitu autonómicu y municipal / Castiella y Lleón"
 }

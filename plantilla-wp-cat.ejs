@@ -1,4 +1,4 @@
-  
+<% i18n.setLocale(idioma); %>  
 <div class="programa-elecciones-generales">
 
 	<div class="idiomas">
@@ -50,7 +50,7 @@
         <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/11/programa_juridica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Jurídica") %></a></p>
         <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/11/Programa_Cultura_Comunicacion_Podemos.pdf" class="pdf" target="_blank"><%= i18n.__("Programa de Cultura y Comunicación") %></a></p>
 
-        <h3><i class="fa fa-book"></i> Temas</h3>
+        <h3><i class="fa fa-book"></i> <%= i18n.__("Temas") %></h3>
         <div class="categoria-propuestas">
         <% etiquetas.forEach(function(categoria) { %>
         	<a href="#" class="btn" data-rel="<%= categoria.slug %>"><%= i18n.__(categoria.nombre) %></a>

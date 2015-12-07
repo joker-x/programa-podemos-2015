@@ -62,7 +62,7 @@ locales.forEach(function(idioma) {
 				slug: slug(eje).toLowerCase()
 			};
 		});
-		var pagina = ejs.render(fs.readFileSync(PLANTILLA, "utf8"), {medidas: medidas, etiquetas: etiquetas, ejes: ejes, i18n: i18n});
+		var pagina = ejs.render(fs.readFileSync(PLANTILLA, "utf8"), {medidas: medidas, etiquetas: etiquetas, ejes: ejes, i18n: i18n, idioma: idioma});
 		fs.writeFileSync(__dirname+'/web/programa_'+idioma+'.html', pagina);
 		fs.writeFileSync(__dirname+'/web/programa_'+idioma+'.min.html', minify(pagina, { 
 			collapseWhitespace: true, 
