@@ -67,7 +67,7 @@
 ;(function($) {
 
   //var url_base = 'http://unpaiscontigo.es/programa/';
-  var url_base = document.location.href;
+  var url_base = document.location.href.split('?')[0];
 
 	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
 		var descripcion = $(this).parent().find('.descripcion-medida');
