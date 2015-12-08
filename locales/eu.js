@@ -52,15 +52,5 @@
 	"Memoria Económica": "Memoria ekonomikoa",
 	"Memoria Jurídica": "Memoria Juridikoa",
 	"Programa de Cultura y Comunicación": "Kultura eta komunikazio programa",
-	"Principales propuestas": "Principales propuestas",
-	"Demokrazia Ekonomikoa": "Demokrazia Ekonomikoa",
-	"Gizarte-Demokrazia": "Gizarte-Demokrazia",
-	"Demokrazia Politikoa": "Demokrazia Politikoa",
-	"herritarren Demokrazia": "herritarren Demokrazia",
-	"Nazioarteko Demokrazia": "Nazioarteko Demokrazia",
-	"Autonomia- Eta Udal-Eremuko Proposamenak": "Autonomia- Eta Udal-Eremuko Proposamenak",
-	"Demokrazia ekonomikoa / Ekoizpen-eredu berria": "Demokrazia ekonomikoa / Ekoizpen-eredu berria",
-	"Gizarte-demokrazia / Etxebizitza eta hornidurak": "Gizarte-demokrazia / Etxebizitza eta hornidurak",
-	"Demokrazia politikoa / Segurtasuna": "Demokrazia politikoa / Segurtasuna",
-	"Erkidego- eta udalerri-mailako proposamenak / Gaztela eta Leon": "Erkidego- eta udalerri-mailako proposamenak / Gaztela eta Leon"
+	"Principales propuestas": "Principales propuestas"
 }
