@@ -49,8 +49,8 @@
 	"Vivienda y suministros básicos": "Habitatge i subministraments bàsics",
 	"Descargas": "Descàrregues",
 	"Programa Electoral": "Programa Electoral",
-	"Memoria Económica": "Memoria Económica",
-	"Memoria Jurídica": "Memoria Jurídica",
-	"Programa de Cultura y Comunicación": "Programa de Cultura y Comunicación",
+	"Memoria Económica": "Memòria Econòmica",
+	"Memoria Jurídica": "Memòria Jurídica",
+	"Programa de Cultura y Comunicación": "Programa de Cultura i Comunicació",
 	"Principales propuestas": "Principales propuestas"
 }
