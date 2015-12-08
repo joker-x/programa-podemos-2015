@@ -1,4 +1,10 @@
 {
+	"Democracia Económica": "Economic Democracy",
+	"Democracia Social": "Social Democracy",
+	"Democracia Política": "Political Democracy",
+	"Democracia Ciudadana": "Citizens' Democracy",
+	"Democracia Internacional": "International Democracy",
+	"Ámbito autonómico y municipal": "Regional And Municipal Proposals",
 	"Temas": "Topics",
 	"Administraciones públicas": "Public administration",
 	"Antiausteridad": "Anti-austerity",
@@ -46,11 +52,5 @@
 	"Memoria Económica": "Economic Report",
 	"Memoria Jurídica": "Judicial Report",
 	"Programa de Cultura y Comunicación": "Culture and Communication Programme",
-	"Principales propuestas": "Principales propuestas",
-	"Democràcia Econòmica": "Democràcia Econòmica",
-	"Democràcia Social": "Democràcia Social",
-	"Democràcia política": "Democràcia política",
-	"Democràcia Ciudadana": "Democràcia Ciudadana",
-	"Democràcia Internacional": "Democràcia Internacional",
-	"Ámbito autonómico y municipal": "Ámbito autonómico y municipal"
+	"Principales propuestas": "Principales propuestas"
 }

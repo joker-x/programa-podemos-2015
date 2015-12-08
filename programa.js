@@ -48,7 +48,7 @@ locales.forEach(function(idioma) {
 					num: num,
 					eje: (medidas_csv[i][1])?medidas_csv[i][1]:"",
 					titulo: (medidas_csv[i][2])?medidas_csv[i][2]:"",
-					descripcion: (medidas_csv[i][3])?marked(medidas_csv[i][3]):"",
+					descripcion: (medidas_csv[i][3].indexOf('</') == -1)?marked(medidas_csv[i][3]):medidas_csv[i][3],
 					etiquetas: dame_etiquetas(num)
 				};
 				medidas.push(medida);
@@ -58,7 +58,8 @@ locales.forEach(function(idioma) {
 		//ejes = _.zipObject(ejes, [30, 40]);
 		ejes = _.map (ejes, function(eje) {
 			return {
-				nombre: i18n.__(eje),
+				//nombre: i18n.__(eje),
+                nombre: eje,
 				slug: slug(eje).toLowerCase()
 			};
 		});

@@ -2,18 +2,18 @@
 <div class="programa-elecciones-generales">
 
 	<div class="idiomas">
-		<a href="http://unpaiscontigo.es/programa/"<% if (i18n.getLocale() == "es") { %> class="selected"<% } %>>Castellano</a>
-		<a href="http://unpaiscontigo.es/programa-ca/" <% if (i18n.getLocale() == "ca") { %> class="selected"<% } %>>Català/Valencià</a>
-		<a href="http://unpaiscontigo.es/programa-eu/" <% if (i18n.getLocale() == "eu") { %> class="selected"<% } %>>Euskera</a>
-		<a href="http://unpaiscontigo.es/programa-gl/" <% if (i18n.getLocale() == "gl") { %> class="selected"<% } %>>Galego</a>
-		<a href="http://unpaiscontigo.es/programa-ast/" <% if (i18n.getLocale() == "ast") { %> class="selected"<% } %>>Asturiano</a>
-		<a href="http://unpaiscontigo.es/programa-en/" <% if (i18n.getLocale() == "en") { %> class="selected"<% } %>>English</a>
+		<a href="http://unpaiscontigo.es/programa-es/"<% if (i18n.getLocale() == "es") { %> class="selected"<% } %>>Castellano</a>
+		<a href="http://unpaiscontigo.es/programa-ca/"<% if (i18n.getLocale() == "ca") { %> class="selected"<% } %>>Català/Valencià</a>
+		<a href="http://unpaiscontigo.es/programa-eu/"<% if (i18n.getLocale() == "eu") { %> class="selected"<% } %>>Euskera</a>
+		<a href="http://unpaiscontigo.es/programa-gl/"<% if (i18n.getLocale() == "gl") { %> class="selected"<% } %>>Galego</a>
+		<a href="http://unpaiscontigo.es/programa-ast/"<% if (i18n.getLocale() == "ast") { %> class="selected"<% } %>>Asturiano</a>
+		<a href="http://unpaiscontigo.es/programa-en/"<% if (i18n.getLocale() == "en") { %> class="selected"<% } %>>English</a>
 	</div>
 
     <div>
         <div class="ramas">
         <% ejes.forEach(function(eje) { %>
-        	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= eje.nombre %></a>
+        	<a href="#" class="btn" data-rel="<%= eje.nombre %>"><%= i18n.__(eje.nombre) %></a>
         <% }); %>
         </div>
     </div>

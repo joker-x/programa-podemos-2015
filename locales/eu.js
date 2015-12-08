@@ -1,4 +1,10 @@
 {
+	"Democracia Económica": "Demokrazia Ekonomikoa",
+	"Democracia Social": "Gizarte-Demokrazia",
+	"Democracia Política": "Demokrazia Politikoa",
+	"Democracia Ciudadana": "herritarren Demokrazia",
+	"Democracia Internacional": "Nazioarteko Demokrazia",
+	"Ámbito autonómico y municipal": "Autonomia- Eta Udal-Eremuko Proposamenak",
 	"Temas": "Gaiak",
 	"Administraciones públicas": "Administrazio publikoak",
 	"Antiausteridad": "Antiausteritatea",
@@ -47,10 +53,14 @@
 	"Memoria Jurídica": "Memoria Juridikoa",
 	"Programa de Cultura y Comunicación": "Kultura eta komunikazio programa",
 	"Principales propuestas": "Principales propuestas",
-	"Democracia Económica": "Democracia Económica",
-	"Democracia Social": "Democracia Social",
-	"Democracia Política": "Democracia Política",
-	"Democracia Ciudadana": "Democracia Ciudadana",
-	"Democracia Internacional": "Democracia Internacional",
-	"Ámbito autonómico y municipal": "Ámbito autonómico y municipal"
+	"Demokrazia Ekonomikoa": "Demokrazia Ekonomikoa",
+	"Gizarte-Demokrazia": "Gizarte-Demokrazia",
+	"Demokrazia Politikoa": "Demokrazia Politikoa",
+	"herritarren Demokrazia": "herritarren Demokrazia",
+	"Nazioarteko Demokrazia": "Nazioarteko Demokrazia",
+	"Autonomia- Eta Udal-Eremuko Proposamenak": "Autonomia- Eta Udal-Eremuko Proposamenak",
+	"Demokrazia ekonomikoa / Ekoizpen-eredu berria": "Demokrazia ekonomikoa / Ekoizpen-eredu berria",
+	"Gizarte-demokrazia / Etxebizitza eta hornidurak": "Gizarte-demokrazia / Etxebizitza eta hornidurak",
+	"Demokrazia politikoa / Segurtasuna": "Demokrazia politikoa / Segurtasuna",
+	"Erkidego- eta udalerri-mailako proposamenak / Gaztela eta Leon": "Erkidego- eta udalerri-mailako proposamenak / Gaztela eta Leon"
 }

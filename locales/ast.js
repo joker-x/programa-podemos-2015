@@ -1,4 +1,10 @@
 {
+	"Democracia Económica": "Democracia Económica",
+	"Democracia Social": "Democracia Social",
+	"Democracia Política": "Democracia Política",
+	"Democracia Ciudadana": "Democracia Ciudadana",
+	"Democracia Internacional": "Democracia Internacional",
+	"Ámbito autonómico y municipal": "Propuestes D’ámbitu autonómicu y de Conceyu",
 	"Temas": "Introduzca la traducción",
 	"Administraciones públicas": "Alministración pública",
 	"Antiausteridad": "Antiausteridá",
