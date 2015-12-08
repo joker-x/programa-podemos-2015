@@ -5,7 +5,7 @@
 	"Democracia Ciudadana": "Democracia Ciudadana",
 	"Democracia Internacional": "Democracia Internacional",
 	"Ámbito autonómico y municipal": "Propuestes D’ámbitu autonómicu y de Conceyu",
-	"Temas": "Introduzca la traducción",
+	"Temas": "Temas",
 	"Administraciones públicas": "Alministración pública",
 	"Antiausteridad": "Antiausteridá",
 	"Agricultura y pesca": "Agricultura y pesca",
@@ -52,15 +52,5 @@
 	"Memoria Económica": "Memoria Económica",
 	"Memoria Jurídica": "Memoria Jurídica",
 	"Programa de Cultura y Comunicación": "Programa de Cultura y Comunicación",
-	"Principales propuestas": "Principales propuestas",
-	"Demokrazia Ekonomikoa": "Demokrazia Ekonomikoa",
-	"Gizarte-Demokrazia": "Gizarte-Demokrazia",
-	"Demokrazia Politikoa": "Demokrazia Politikoa",
-	"herritarren Demokrazia": "herritarren Demokrazia",
-	"Nazioarteko Demokrazia": "Nazioarteko Demokrazia",
-	"Autonomia- Eta Udal-Eremuko Proposamenak": "Autonomia- Eta Udal-Eremuko Proposamenak",
-	"Demokrazia ekonomikoa / Ekoizpen-eredu berria": "Demokrazia ekonomikoa / Ekoizpen-eredu berria",
-	"Gizarte-demokrazia / Etxebizitza eta hornidurak": "Gizarte-demokrazia / Etxebizitza eta hornidurak",
-	"Demokrazia politikoa / Segurtasuna": "Demokrazia politikoa / Segurtasuna",
-	"Erkidego- eta udalerri-mailako proposamenak / Gaztela eta Leon": "Erkidego- eta udalerri-mailako proposamenak / Gaztela eta Leon"
+	"Principales propuestas": "Principales propuestas"
 }

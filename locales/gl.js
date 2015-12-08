@@ -52,11 +52,5 @@
 	"Memoria Económica": "Memoria Económica",
 	"Memoria Jurídica": "Memoria Xurídica",
 	"Programa de Cultura y Comunicación": "Programa de cultura e Comunicación",
-	"Democracia Económica": "Democracia Económica",
-	"Democracia Social": "Democracia Social",
-	"Democracia Política": "Democracia Política",
-	"Democracia Ciudadana": "Democracia Ciudadana",
-	"Democracia Internacional": "Democracia Internacional",
-	"Ámbito autonómico y municipal": "Ámbito autonómico y municipal",
 	"Principales propuestas": "Principales propuestas"
 }
