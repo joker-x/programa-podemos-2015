@@ -52,13 +52,5 @@
 	"Memoria Económica": "Memoria ekonomikoa",
 	"Memoria Jurídica": "Memoria Juridikoa",
 	"Programa de Cultura y Comunicación": "Kultura eta komunikazio programa",
-	"Principales propuestas": "Principales propuestas",
-	"Demokrazia ekonomikoa": "Demokrazia ekonomikoa",
-	"Gizarte-Demokrazia": "Gizarte-Demokrazia",
-	"GIZARTE-DEMOKRAZIA": "GIZARTE-DEMOKRAZIA",
-	"Demokrazia politikoa": "Demokrazia politikoa",
-	"Herritaren Demokracia": "Herritaren Demokracia",
-	"Nazioarteko Demokracia": "Nazioarteko Demokracia",
-	"Esparru autonomikoa eta udaletakoa": "Esparru autonomikoa eta udaletakoa",
-	"Demokrazia politikoa ": "Demokrazia politikoa "
+	"Principales propuestas": "Principales propuestas"
 }
