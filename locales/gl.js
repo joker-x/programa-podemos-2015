@@ -20,7 +20,7 @@
 	"Democracia y participación": "Democracia e participación",
 	"Dependencia": "Dependencia",
 	"Deporte": "Deporte",
-	"Derechos económicos, sociales y culturales": "Dereitos económicos, sociais e culturaisn",
+	"Derechos económicos, sociales y culturales": "Dereitos económicos, sociais e culturais",
 	"Derechos humanos": "Dereitos humanos",
 	"Educación y universidad": "Educación e universidade",
 	"Emigración": "Emigración",
@@ -51,6 +51,7 @@
 	"Programa Electoral": "Programa electoral",
 	"Memoria Económica": "Memoria Económica",
 	"Memoria Jurídica": "Memoria Xurídica",
+	"Programa de lectura fácil": "Programa de lectura fácil",
 	"Programa de Cultura y Comunicación": "Programa de cultura e Comunicación",
 	"Principales propuestas": "Principales propuestas"
 }
