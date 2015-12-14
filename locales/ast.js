@@ -52,5 +52,6 @@
 	"Memoria Económica": "Memoria Económica",
 	"Memoria Jurídica": "Memoria Jurídica",
 	"Programa de Cultura y Comunicación": "Programa de Cultura y Comunicación",
-	"Principales propuestas": "Principales propuestas"
+	"Principales propuestas": "Principales propuestas",
+	"Programa en vídeo": "Programa en vídeu"
 }

@@ -52,5 +52,6 @@
 	"Memoria Económica": "Memoria ekonomikoa",
 	"Memoria Jurídica": "Memoria Juridikoa",
 	"Programa de Cultura y Comunicación": "Kultura eta komunikazio programa",
-	"Principales propuestas": "Principales propuestas"
+	"Principales propuestas": "Principales propuestas",
+	"Programa en vídeo": "Bideoko programa"
 }

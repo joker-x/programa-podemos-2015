@@ -12900,6 +12900,7 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
         <p><a href="http://unpaiscontigo.es/wp-content/plugins/programa/data/programa-en.pdf" class="pdf" target=_blank>Electoral Programme</a></p>
         <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/11/programa_economica.pdf" class="pdf" target="_blank">Economic Report</a></p>
         <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/11/programa_juridica.pdf" class="pdf" target="_blank">Judicial Report</a></p>
+        <p><a href="http://unpaiscontigo.es/un-programa-contigo/" class="pdf">Programme on video</a></p>
         <p><a href="http://unpaiscontigo.es/wp-content/plugins/programa/data/programa-lectura-facil.pdf" class="pdf" target="_blank">Programa de lectura fácil</a></p>
         <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/11/Programa_Cultura_Comunicacion_Podemos.pdf" class="pdf" target="_blank">Culture and Communication Programme</a></p>
 
@@ -13065,7 +13066,7 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
     window.open('whatsapp://send?text=' + texto, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
   // devuelve array con las medidas a mostrar
-  function parsear_url() {
+  function dame_medidas_url() {
     var medidas = window.location.search;
     if (medidas.indexOf('medida=') > -1) {
       medidas=medidas.split('medida=');
@@ -13075,12 +13076,27 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
     }
     return medidas;    
   }
-  var medidas =  parsear_url();
+  function dame_temas_url() {
+    var temas = window.location.search;
+    if (temas.indexOf('tema=') > -1) {
+      temas=temas.split('tema=');
+      temas=[decodeURI(temas[1])];
+    } else {
+      temas=[];
+    }
+    return temas;    
+  }
+  var medidas =  dame_medidas_url();
   for (i=0; i<medidas.length; i++) {
     $('.medidas-programa').hide();
     $('#medida-'+medidas[i]).fadeIn(function() {
       $(this).find('.descripcion-medida').delay(1000).slideDown();
     });
+  }
+  var temas = dame_temas_url();
+  for (i=0; i<temas.length; i++) {
+    //$('.medidas-programa').hide();
+    $('.categoria-propuestas [data-rel="'+temas[i]+'"]').trigger('click');
   }
 })(jQuery);
 

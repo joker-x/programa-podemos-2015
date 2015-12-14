@@ -52,5 +52,6 @@
 	"Memoria Económica": "Economic Report",
 	"Memoria Jurídica": "Judicial Report",
 	"Programa de Cultura y Comunicación": "Culture and Communication Programme",
-	"Principales propuestas": "Principales propuestas"
+	"Principales propuestas": "Principales propuestas",
+	"Programa en vídeo": "Programme on video"
 }

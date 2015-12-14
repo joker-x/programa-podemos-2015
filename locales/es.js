@@ -53,5 +53,6 @@
 	"Programa de Cultura y Comunicación": "Programa de Cultura y Comunicación",
 	"Principales propuestas": "Principales propuestas",
 	"Democracia Económica": "Democracia Económica",
-	"Temas": "Temas"
+	"Temas": "Temas",
+	"Programa en vídeo": "Programa en vídeo"
 }
