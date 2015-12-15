@@ -28,7 +28,7 @@
 		        <h4><%= medida.titulo %></h4>
 		        <div class="categoria-medida">
             <% medida.etiquetas.forEach(function(categoria) { %>
-		            <a href="#<%= medida.num %>" data-rel="<%= categoria.slug %>"><span><%= i18n.__(categoria.nombre) %></span></a>
+		            <a href="?tema=<%= categoria.slug %>" data-rel="<%= categoria.slug %>"><span><%= i18n.__(categoria.nombre) %></span></a>
             <% }); %>
 		        </div>
 		        <div class="descripcion-medida">
@@ -57,7 +57,7 @@
         <h3><i class="fa fa-book"></i> <%= i18n.__("Temas") %></h3>
         <div class="categoria-propuestas">
         <% etiquetas.forEach(function(categoria) { %>
-        	<a href="#" class="btn" data-rel="<%= categoria.slug %>"><%= i18n.__(categoria.nombre) %></a>
+        	<a href="?tema=<%= categoria.slug %>" class="btn" data-rel="<%= categoria.slug %>"><%= i18n.__(categoria.nombre) %></a>
         <% }); %>
         </div>
 
@@ -163,7 +163,6 @@
   }
   var temas = dame_temas_url();
   for (i=0; i<temas.length; i++) {
-    //$('.medidas-programa').hide();
     $('.categoria-propuestas [data-rel="'+temas[i]+'"]').trigger('click');
   }
 })(jQuery);
