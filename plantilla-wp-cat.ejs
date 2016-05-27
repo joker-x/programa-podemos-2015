@@ -111,7 +111,8 @@
 	medidas_visibles();
 
 	$('#busca').on('keyup', function(e) {
-		var objetivo = normaliza($(this).val());
+		//var objetivo = normaliza($(this).val());
+		var objetivo = $(this).val();
 		if (objetivo == '') {
 			$('medidas-programa').fadeIn();
 		}
@@ -119,7 +120,7 @@
 			$('.medidas-programa').hide();
 			$('.titulo-medida').each(function() {
 				var titulo = normaliza($(this).find('h4').text()+' '+$(this).find('.categoria-medida').text());
-				if (titulo.indexOf(objetivo) >= 0) {
+				if (titulo.indexOf(normaliza(objetivo)) >= 0) {
 					$(this).parents('.medidas-programa').fadeIn();
 				}
 			});
