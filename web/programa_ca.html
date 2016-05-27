@@ -13096,7 +13096,7 @@ L’autorització per poder desenvolupar la solució acordada.</li>
 		$('#medidas-visibles').html('<i class="fa fa-spinner fa-spin"></i>');
 		setTimeout(function() {
 			$('#medidas-visibles').text($('.medidas-programa:visible').length);
-		}, 500);
+		}, 800);
 	}
 
 	//$('#medidas-visibles').text($('.medidas-programa:visible').length);
@@ -13104,7 +13104,7 @@ L’autorització per poder desenvolupar la solució acordada.</li>
 
 	$('#busca').on('keyup', function(e) {
 		var objetivo = normaliza($(this).val());
-		if (objetivo.length == 0) {
+		if (objetivo == '') {
 			$('medidas-programa').fadeIn();
 		}
 		if (objetivo.length >= 4) {

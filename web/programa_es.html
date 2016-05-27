@@ -11629,7 +11629,7 @@ puedan decidir el tipo de relación territorial que
 		$('#medidas-visibles').html('<i class="fa fa-spinner fa-spin"></i>');
 		setTimeout(function() {
 			$('#medidas-visibles').text($('.medidas-programa:visible').length);
-		}, 500);
+		}, 800);
 	}
 
 	//$('#medidas-visibles').text($('.medidas-programa:visible').length);
@@ -11637,7 +11637,7 @@ puedan decidir el tipo de relación territorial que
 
 	$('#busca').on('keyup', function(e) {
 		var objetivo = normaliza($(this).val());
-		if (objetivo.length == 0) {
+		if (objetivo == '') {
 			$('medidas-programa').fadeIn();
 		}
 		if (objetivo.length >= 4) {
