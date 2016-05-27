@@ -13500,8 +13500,8 @@ Ezinbestekoa da, halaber, erkidegoen osasun gaietako eskumenak koordinatzea, eta
 		}
 		if (objetivo.length >= 4) {
 			$('.medidas-programa').hide();
-			$('.titulo-medida h4').each(function() {
-				var titulo = normaliza($(this).text());
+			$('.titulo-medida').each(function() {
+				var titulo = normaliza($(this).find('h4').text()+' '+$(this).find('.categoria-medida').text());
 				if (titulo.indexOf(objetivo) >= 0) {
 					$(this).parents('.medidas-programa').fadeIn();
 				}
