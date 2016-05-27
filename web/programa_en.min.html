@@ -36,6 +36,7 @@
 	})();
 
 	function medidas_visibles() {
+		$('#medidas-visibles').html('<i class="fa fa-spinner fa-spin"></i>');
 		setTimeout(function() {
 			$('#medidas-visibles').text($('.medidas-programa:visible').length);
 		}, 500);
