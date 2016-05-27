@@ -13345,6 +13345,8 @@ Ezinbestekoa da, halaber, erkidegoen osasun gaietako eskumenak koordinatzea, eta
 
     <div class="categorias-programa">
 
+		<input id="busca" type="search" placeholder="Buscar en el programa">
+
         <h3><i class="fa fa-file-pdf-o"></i> Jaitsierak</h3>
         <p><a href="http://unpaiscontigo.es/wp-content/plugins/programa/data/programa-eu.pdf" class="pdf" target=_blank>Hauteskunde-programa</a></p>
         <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/11/programa_economica.pdf" class="pdf" target="_blank">Memoria ekonomikoa</a></p>
@@ -13453,8 +13455,20 @@ Ezinbestekoa da, halaber, erkidegoen osasun gaietako eskumenak koordinatzea, eta
 
 ;(function($) {
 
-  //var url_base = 'http://unpaiscontigo.es/programa/';
-  var url_base = document.location.href.split('?')[0];
+	//var url_base = 'http://unpaiscontigo.es/programa/';
+	var url_base = document.location.href.split('?')[0];
+
+	$('#busca').on('keyup', function(e) {
+		var objetivo = $(this).val();
+		if (objetivo.length >= 4) {
+			$('.medidas-programa').hide();
+			$('.titulo-medida h4').each(function() {
+				if ($(this).text().indexOf(objetivo) >= 0) {
+					$(this).parents('.medidas-programa').fadeIn();
+				}
+			});
+		}
+	});
 
 	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
 		var descripcion = $(this).parent().find('.descripcion-medida');
