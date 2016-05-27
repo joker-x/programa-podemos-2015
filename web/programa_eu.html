@@ -13345,7 +13345,9 @@ Ezinbestekoa da, halaber, erkidegoen osasun gaietako eskumenak koordinatzea, eta
 
     <div class="categorias-programa">
 
+		<h3><i class="fa fa-search"></i> Búsquedas</h3>
 		<input id="busca" type="search" placeholder="Buscar en el programa">
+		<p><span id="medidas-visibles"></span> medidas encontradas</p>
 
         <h3><i class="fa fa-file-pdf-o"></i> Jaitsierak</h3>
         <p><a href="http://unpaiscontigo.es/wp-content/plugins/programa/data/programa-eu.pdf" class="pdf" target=_blank>Hauteskunde-programa</a></p>
@@ -13458,16 +13460,46 @@ Ezinbestekoa da, halaber, erkidegoen osasun gaietako eskumenak koordinatzea, eta
 	//var url_base = 'http://unpaiscontigo.es/programa/';
 	var url_base = document.location.href.split('?')[0];
 
+	var normaliza = (function() {
+	  var from = "ãàáäâèéëêìíïîòóöôùúüû", 
+		  to   = "aaaaaeeeeiiiioooouuuu",
+		  mapping = {};
+	 
+	  for(var i = 0, j = from.length; i < j; i++ )
+		  mapping[ from.charAt( i ) ] = to.charAt( i );
+	 
+	  return function( str ) {
+	      str = str.toLowerCase();
+		  var ret = [];
+		  for( var i = 0, j = str.length; i < j; i++ ) {
+		      var c = str.charAt( i );
+		      if( mapping.hasOwnProperty( str.charAt( i ) ) )
+		          ret.push( mapping[ c ] );
+		      else
+		          ret.push( c );
+		  }      
+		  return ret.join( '' );
+	  }
+	 
+	})();
+
+	$('#medidas-visibles').text($('.medidas-programa:visible').length);
+
 	$('#busca').on('keyup', function(e) {
-		var objetivo = $(this).val();
+		var objetivo = normaliza($(this).val());
+		if (objetivo.length == 0) {
+			$('medidas-programa').fadeIn();
+		}
 		if (objetivo.length >= 4) {
 			$('.medidas-programa').hide();
 			$('.titulo-medida h4').each(function() {
-				if ($(this).text().indexOf(objetivo) >= 0) {
+				var titulo = normaliza($(this).text());
+				if (titulo.indexOf(objetivo) >= 0) {
 					$(this).parents('.medidas-programa').fadeIn();
 				}
 			});
 		}
+		$('#medidas-visibles').text($('.medidas-programa:visible').length);
 	});
 
 	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
