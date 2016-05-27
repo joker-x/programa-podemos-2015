@@ -13056,7 +13056,14 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
 	 
 	})();
 
-	$('#medidas-visibles').text($('.medidas-programa:visible').length);
+	function medidas_visibles() {
+		setTimeout(function() {
+			$('#medidas-visibles').text($('.medidas-programa:visible').length);
+		}, 500);
+	}
+
+	//$('#medidas-visibles').text($('.medidas-programa:visible').length);
+	medidas_visibles();
 
 	$('#busca').on('keyup', function(e) {
 		var objetivo = normaliza($(this).val());
@@ -13072,7 +13079,8 @@ Guarantee immediate health coverage to Spanish emigrants returned to the country
 				}
 			});
 		}
-		$('#medidas-visibles').text($('.medidas-programa:visible').length);
+		medidas_visibles();
+		//$('#medidas-visibles').text($('.medidas-programa:visible').length);
 	});
 
 	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
