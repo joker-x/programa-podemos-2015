@@ -53,5 +53,6 @@
 	"Memoria Jurídica": "Memoria Juridikoa",
 	"Programa de Cultura y Comunicación": "Kultura eta komunikazio programa",
 	"Principales propuestas": "Principales propuestas",
-	"Programa en vídeo": "Bideoko programa"
+	"Programa en vídeo": "Bideoko programa",
+	"Buscar en el programa": "Buscar en el programa"
 }

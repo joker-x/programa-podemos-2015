@@ -53,5 +53,6 @@
 	"Memoria Jurídica": "Memòria Jurídica",
 	"Programa de Cultura y Comunicación": "Programa de Cultura i Comunicació",
 	"Principales propuestas": "Principales propuestas",
-	"Programa en vídeo": "Programa en vídeo"
+	"Programa en vídeo": "Programa en vídeo",
+	"Buscar en el programa": "Buscar en el programa"
 }

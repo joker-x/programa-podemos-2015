@@ -54,5 +54,6 @@
 	"Programa de lectura fácil": "Programa de lectura fácil",
 	"Programa de Cultura y Comunicación": "Programa de cultura e Comunicación",
 	"Principales propuestas": "Principales propuestas",
-	"Programa en vídeo": "Programa en vídeo"
+	"Programa en vídeo": "Programa en vídeo",
+	"Buscar en el programa": "Buscar no programa"
 }
