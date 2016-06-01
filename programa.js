@@ -75,7 +75,7 @@ locales.forEach(function(idioma) {
 			removeAttributeQuotes: true }));
 		_.each (medidas, function(medida) {
 			pagina = ejs.render(fs.readFileSync(PLANTILLA_FB, "utf8"), {medida: medida, i18n: i18n, idioma: idioma});
-			fs.writeFileSync(__dirname+'/web/fb-share/'+idioma+'/'+medida.num+'.html', pagina);
+			fs.writeFileSync(__dirname+'/web/fb-share/programa/'+idioma+'/'+medida.num+'.html', pagina);
 		});
 		console.log(idioma);
 
