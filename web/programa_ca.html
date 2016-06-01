@@ -13490,9 +13490,11 @@ L’autorització per poder desenvolupar la solució acordada.</li>
 	}
 
 	//$('#medidas-visibles').text($('.medidas-programa:visible').length);
+	$('.loader-medidas').hide();
 	medidas_visibles();
 
 	$('#busca').on('keyup', function(e) {
+		$('.loader-medidas').show();
 		var objetivo = normaliza($(this).val());
 		if (objetivo.length == 0) {
 			$('.medidas-programa').fadeIn();

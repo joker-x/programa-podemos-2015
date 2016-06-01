@@ -22,7 +22,7 @@
 	<div class="busquedas">
 		<div class="buscar-programa">
 			<i class="fa fa-search"></i>
-			<input id="busca" type="search" placeholder="Buscar en el programa">
+			<input id="busca" type="search" placeholder="Bilatu programan">
 		</div>
 		<div class="loader-medidas">
 			<span><span id="medidas-visibles"></span> medidas encontradas</span>
@@ -13881,9 +13881,11 @@ Ezinbestekoa da, halaber, erkidegoen osasun gaietako eskumenak koordinatzea, eta
 	}
 
 	//$('#medidas-visibles').text($('.medidas-programa:visible').length);
+	$('.loader-medidas').hide();
 	medidas_visibles();
 
 	$('#busca').on('keyup', function(e) {
+		$('.loader-medidas').show();
 		var objetivo = normaliza($(this).val());
 		if (objetivo.length == 0) {
 			$('.medidas-programa').fadeIn();
