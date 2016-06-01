@@ -11,6 +11,7 @@ var fs = require('fs') // IO ficheros
 var FICH_DATA = __dirname + '/data/rescate.csv';
 var DELIMITER = '\t';
 var PLANTILLA = __dirname + '/plantilla-wp-rescate.ejs';
+var PLANTILLA_FB = __dirname + '/plantilla-fb-share-rescate.ejs';
 
 /*
 var etiquetas = require(__dirname + '/data/etiquetas.json');
@@ -42,7 +43,8 @@ function(err, medidas_csv) {
 				num: num,
 				eje: (medidas_csv[i][1])?medidas_csv[i][1]:"",
 				titulo: (medidas_csv[i][2])?medidas_csv[i][2]:"",
-				descripcion: (medidas_csv[i][3])?marked(medidas_csv[i][3]):""
+				descripcion: (medidas_csv[i][3])?marked(medidas_csv[i][3]):"",
+				descripcion_text: medidas_csv[i][3]
 			};
 			medidas.push(medida);
 		}
@@ -60,6 +62,12 @@ function(err, medidas_csv) {
 	fs.writeFileSync(__dirname+'/web/rescate.min.html', minify(pagina, { 
 		collapseWhitespace: true, 
 		removeAttributeQuotes: true }));
+
+	_.each (medidas, function(medida) {
+		pagina = ejs.render(fs.readFileSync(PLANTILLA_FB, "utf8"), {medida: medida});
+		fs.writeFileSync(__dirname+'/web/fb-share/rescate/es/'+medida.num+'.html', pagina);
+	});
+
 /*
   filtros por ejes
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>PODEMOS: <%= medida.titulo %></title>
+	<meta property="og:title" content="PODEMOS: <%= medida.titulo %>" />
+	<meta property="og:description" content="<%= medida.descripcion_text %>" />
+	<meta property="og:image" content="http://laoportunidaddeunpais.es/wp-content/themes/html5blank-stable/img/eje-1.png" />
+	<meta property="og:image" content="http://laoportunidaddeunpais.es/wp-content/themes/html5blank-stable/img/eje-2.png" />
+	<meta property="og:image" content="http://laoportunidaddeunpais.es/wp-content/themes/html5blank-stable/img/eje-3.png" />
+	<meta property="og:image" content="http://laoportunidaddeunpais.es/wp-content/themes/html5blank-stable/img/eje-4.png" />
+	<meta property="og:image" content="http://laoportunidaddeunpais.es/wp-content/themes/html5blank-stable/img/eje-5.png" />
+</head>
+ 
+<body>
+	<script type="text/javascript">
+		var url_base = '/plan-rescate-ciudadano/?medida=<%= medida.num %>';
+		window.location = url_base;
+	</script>
+	<h1><%= medida.titulo %></h1>
+	<div>
+		<%- medida.descripcion %>
+	</div>
+</body>
+ 
+</html>

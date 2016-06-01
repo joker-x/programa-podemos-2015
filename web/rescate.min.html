@@ -78,9 +78,7 @@
     var title = encodeURI($(medida).find('.titulo-medida h4').text());
     var descr = encodeURI($(medida).find('.descripcion-medida').text());
     var num_medida = $(medida).find('.numero-medida').text();
-    var url = encodeURI(url_base + '?medida=' + num_medida);
-    var image = 'https://unpaiscontigo.es/wp-content/themes/html5blank-stable/img/eje-1.png';
-    //window.open('https://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+	var url = encodeURI('http://laoportunidaddeunpais.es/fb-share/rescate/es/'+num_medida+'.html');
     window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + '&amp;t=' + title, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
   $('.social .fa-twitter').parent().on('click', function(e) {
