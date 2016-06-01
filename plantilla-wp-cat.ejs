@@ -38,6 +38,7 @@
                 <a href=""><i class="fa fa-twitter"></i></a>
                 <a href="" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
               </div>
+			  <p></p>
               <%- medida.descripcion %>
             </div>
 		    </div>
@@ -49,8 +50,8 @@
 
         <h3><i class="fa fa-file-pdf-o"></i> <%= i18n.__("Descargas") %></h3>
         <p><a href="/wp-content/plugins/programa/data/programa-<%= idioma %>.pdf" class="pdf" target=_blank><%= i18n.__("Programa Electoral") %></a></p>
-        <p><a href="/wp-content/uploads/2015/11/programa_economica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Económica") %></a></p>
-        <p><a href="/wp-content/uploads/2015/11/programa_juridica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Jurídica") %></a></p>
+        <p><a href="/wp-content/plugins/programa/data/programa-economica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Económica") %></a></p>
+        <p><a href="/wp-content/plugins/programa/data/programa-juridica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Jurídica") %></a></p>
         <p><a href="/un-programa-contigo/" class="pdf"><%= i18n.__("Programa en vídeo") %></a></p>
         <p><a href="/wp-content/plugins/programa/data/programa-lectura-facil.pdf" class="pdf" target="_blank">Programa de lectura fácil</a></p>
         <p><a href="/wp-content/uploads/2015/11/Programa_Cultura_Comunicacion_Podemos.pdf" class="pdf" target="_blank"><%= i18n.__("Programa de Cultura y Comunicación") %></a></p>
@@ -155,26 +156,21 @@
 	});
   // social
   $('.social .fa-facebook-official').parent().on('click', function(e) {
-		e.preventDefault();
+    e.preventDefault();
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
     var medida = $(this).parents('.medidas-programa');
-    var title = encodeURI($(medida).find('.titulo-medida h4').text());
-    var descr = encodeURI($(medida).find('.descripcion-medida').text());
     var num_medida = parseInt($(medida).find('.numero-medida').text());
-    //var url = encodeURI(url_base + '?medida=' + num_medida);
-	var url = encodeURI('http://laoportunidaddeunpais.es/fb-share/programa/<%= idioma %>/'+num_medida+'.html');
-    var image = 'https://unpaiscontigo.es/wp-content/themes/html5blank-stable/img/eje-1.png';
-    //window.open('https://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + '&amp;t=' + title, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+	var url = encodeURI('http://lasonrisadeunpais.es/fb-share/programa/<%= idioma %>/'+num_medida+'.html');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
   $('.social .fa-twitter').parent().on('click', function(e) {
-		e.preventDefault();
+    e.preventDefault();
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
     var medida = $(this).parents('.medidas-programa');
     var num_medida = parseInt($(medida).find('.numero-medida').text());
-    var url = encodeURI(url_base + '?medida=' + num_medida);
+    var url = encodeURI('http://lasonrisadeunpais.es/fb-share/programa/<%= idioma %>/'+num_medida+'.html');
     var tweet = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
     window.open('https://twitter.com/home?status=' + tweet, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
@@ -184,7 +180,7 @@
     var winLeft = (screen.width / 2) - (520 / 2);
     var medida = $(this).parents('.medidas-programa');
     var num_medida = parseInt($(medida).find('.numero-medida').text());
-    var url = encodeURI(url_base + '?medida=' + num_medida);
+    var url = encodeURI('http://lasonrisadeunpais.es/fb-share/programa/<%= idioma %>/'+num_medida+'.html');
     var texto = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
     window.open('whatsapp://send?text=' + texto, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });

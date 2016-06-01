@@ -20,22 +20,7 @@ locales.forEach(function(idioma) {
 	// CONFIGURACIÓN
 	var FICH_DATA = __dirname + '/data/programa_'+idioma+'.csv';
 	var DELIMITER = '\t';
-	var PLANTILLA = __dirname + '/plantilla-wp-cat.ejs';
-	var PLANTILLA_FB = __dirname + '/plantilla-fb-share.ejs';
 
-	var etiquetas = require(__dirname + '/data/etiquetas.json');
-	//añadimos slugs
-	etiquetas.forEach(function(etiqueta) {
-		etiqueta["slug"] = slug(etiqueta.nombre).toLowerCase();
-	});
-
-	function dame_etiquetas(num_medida) {
-		var categorias = [];
-		etiquetas.forEach(function(etiqueta) {
-			if (etiqueta.medidas.indexOf(num_medida)>=0) categorias.push(etiqueta);
-		});
-		return categorias;
-	}
 	// MAIN
 	// Leemos el fichero con las medidas
 	parser(fs.readFileSync(FICH_DATA, "utf8"), 
