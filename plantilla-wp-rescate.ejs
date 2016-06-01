@@ -9,17 +9,29 @@
         </div>
     </div>
 
+	<div class="busquedas">
+		<div class="buscar-programa">
+			<i class="fa fa-search"></i>
+			<input id="busca" type="search" placeholder="Buscar en el plan de rescate">
+		</div>
+		<div class="loader-medidas">
+			<span><span id="medidas-visibles"></span> medidas encontradas</span>
+		</div>
+	</div>
+
 	<div class="medidas">   
 	<% medidas.forEach(function(medida){ %>
-		<div id="medida-<%= parseInt(parseFloat(medida.num)*10.0) %>" class="medidas-rescate" data-eje="<%= medida.eje %>">
+		<div id="medida-<%= parseInt(parseFloat(medida.num)*10.0) %>" class="medidas-programa" data-eje="<%= medida.eje %>">
 		    <div class="numero-medida"><%= medida.num %></div>
 		    <div class="titulo-medida">
 		      <h4><%= medida.titulo %></h4>
 		      <div class="descripcion-medida">
                 <%- medida.descripcion %>
                 <div class="social">
+                  <p>¡Comparte esta medida en redes sociales!</p>
                   <a href=""><i class="fa fa-facebook-official"></i></a>
                   <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href="" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
                 </div>
               </div>
 		    </div>
@@ -30,7 +42,7 @@
     <div class="categorias-rescate">
 
         <h3><i class="fa fa-file-pdf-o"></i> Descargas</h3>
-        <p><a href="http://unpaiscontigo.es/wp-content/uploads/2015/12/plan-rescate-ciudadano-podemos.pdf" class="pdf" target=_blank>Plan de rescate ciudadano</a></p>
+        <p><a href="/wp-content/uploads/2015/12/plan-rescate-ciudadano-podemos.pdf" class="pdf" target=_blank>Plan de rescate ciudadano</a></p>
 
     </div>
 
@@ -41,13 +53,62 @@
 
 ;(function($) {
 
-  var url_base = 'http://unpaiscontigo.es/plan-rescate-ciudadano/';
+  var url_base = document.location.href.split('?')[0];
+
+	var normaliza = (function() {
+	  var from = "ãàáäâèéëêìíïîòóöôùúüû", 
+		  to   = "aaaaaeeeeiiiioooouuuu",
+		  mapping = {};
+	 
+	  for(var i = 0, j = from.length; i < j; i++ )
+		  mapping[ from.charAt( i ) ] = to.charAt( i );
+	 
+	  return function( str ) {
+	      str = str.toLowerCase();
+		  var ret = [];
+		  for( var i = 0, j = str.length; i < j; i++ ) {
+		      var c = str.charAt( i );
+		      if( mapping.hasOwnProperty( str.charAt( i ) ) )
+		          ret.push( mapping[ c ] );
+		      else
+		          ret.push( c );
+		  }      
+		  return ret.join( '' );
+	  }
+	 
+	})();
+
+	function medidas_visibles() {
+		$('#medidas-visibles').html('<i class="fa fa-spinner fa-spin"></i>');
+		setTimeout(function() {
+			$('#medidas-visibles').text($('.medidas-programa:visible').length);
+		}, 800);
+	}
+
+	medidas_visibles();
+
+	$('#busca').on('keyup', function(e) {
+		var objetivo = normaliza($(this).val());
+		if (objetivo.length == 0) {
+			$('.medidas-programa').fadeIn();
+		}
+		if (objetivo.length >= 4) {
+			$('.medidas-programa').hide();
+			$('.titulo-medida').each(function() {
+				var titulo = normaliza($(this).find('h4').text()+' '+$(this).find('.categoria-medida').text());
+				if (titulo.indexOf(objetivo) >= 0) {
+					$(this).parents('.medidas-programa').fadeIn();
+				}
+			});
+		}
+		medidas_visibles();
+	});
 
   function get_id(num_bloque) {
     return parseInt(parseFloat(num_bloque)*10.0);
   } 
 
-	$('.medidas-rescate .titulo-medida h4').on('click', function(e) {
+	$('.medidas-programa .titulo-medida h4').on('click', function(e) {
 		var descripcion = $(this).parent().find('.descripcion-medida');
 		($(descripcion).is(':visible'))?$(descripcion).slideUp():$(descripcion).slideDown();
 	});
@@ -56,7 +117,7 @@
 		var eje = $(this).data('rel');
 		$('.ramas a').removeClass('activo');
 		$(this).addClass('activo');
-		$('.medidas-rescate').hide();
+		$('.medidas-programa').hide();
 		$('[data-eje="'+eje+'"]').each(function() {
 			$(this).fadeIn();
 		});
@@ -79,12 +140,24 @@
 		e.preventDefault();
     var winTop = (screen.height / 2) - (350 / 2);
     var winLeft = (screen.width / 2) - (520 / 2);
-    var medida = $(this).parents('.medidas-rescate');
+    var medida = $(this).parents('.medidas-programa');
     var num_medida = $(medida).find('.numero-medida').text();
     var url = encodeURI(url_base + '?medida=' + num_medida);
     var tweet = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
     window.open('https://twitter.com/home?status=' + tweet, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
   });
+
+  $('.social .fa-whatsapp').parent().on('click', function(e) {
+		e.preventDefault();
+    var winTop = (screen.height / 2) - (350 / 2);
+    var winLeft = (screen.width / 2) - (520 / 2);
+    var medida = $(this).parents('.medidas-programa');
+    var num_medida = parseInt($(medida).find('.numero-medida').text());
+    var url = encodeURI(url_base + '?medida=' + num_medida);
+    var texto = encodeURI($(medida).find('.titulo-medida h4').text()) + ' ' + url;
+    window.open('whatsapp://send?text=' + texto, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=520,height=350');
+  });
+
   // devuelve array con las medidas a mostrar
   function parsear_url() {
     var medidas = window.location.search;
@@ -98,14 +171,14 @@
   }
   var medidas =  parsear_url();
   for (i=0; i<medidas.length; i++) {
-    $('.medidas-rescate').hide();
+    $('.medidas-programa').hide();
     $('#medida-'+get_id(medidas[i])).fadeIn(function() {
       $(this).find('.descripcion-medida').delay(1000).slideDown();
     });
   }
 /*
   if (medidas.length == 0) {
-    $('.medidas-rescate:first').find('.descripcion-medida').delay(1000).slideDown();
+    $('.medidas-programa:first').find('.descripcion-medida').delay(1000).slideDown();
   }
 */
 })(jQuery);
