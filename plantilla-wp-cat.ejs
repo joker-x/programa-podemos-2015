@@ -32,14 +32,13 @@
             <% }); %>
 		        </div>
 		        <div class="descripcion-medida">
+              <%- medida.descripcion %>
               <div class="social">
 				<p><strong>¡Comparte esta medida en redes sociales!</strong></p>
                 <a href=""><i class="fa fa-facebook-official"></i></a>
                 <a href=""><i class="fa fa-twitter"></i></a>
                 <a href="" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
               </div>
-			  <p></p>
-              <%- medida.descripcion %>
             </div>
 		    </div>
 		</div>
@@ -48,13 +47,18 @@
 
     <div class="categorias-programa">
 
+		<h3>Open Data</h3>
+		<p><i class="fa fa-database"></i> <a href="/wp-content/plugins/programa/data/programa-<%= idioma %>.csv" class="pdf" target="_blank">.csv</a></p>
+		<p><i class="fa fa-archive"></i> <a href="https://github.com/podemos-info/programa-electoral-podemos-26j/zipball/master" class="pdf">.zip</a></p>
+		<p><i class="fa fa-github"></i> <a href="https://github.com/podemos-info/programa-electoral-podemos-26j/" class="pdf" target="_blank">github</a></p>
+
         <h3><i class="fa fa-file-pdf-o"></i> <%= i18n.__("Descargas") %></h3>
-        <p><a href="/wp-content/plugins/programa/data/programa-<%= idioma %>.pdf" class="pdf" target=_blank><%= i18n.__("Programa Electoral") %></a></p>
+        <p><a href="/wp-content/plugins/programa/data/programa-<%= idioma %>.pdf" class="pdf" target="_blank"><%= i18n.__("Programa Electoral") %></a></p>
         <p><a href="/wp-content/plugins/programa/data/programa-economica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Económica") %></a></p>
         <p><a href="/wp-content/plugins/programa/data/programa-juridica.pdf" class="pdf" target="_blank"><%= i18n.__("Memoria Jurídica") %></a></p>
         <p><a href="/un-programa-contigo/" class="pdf"><%= i18n.__("Programa en vídeo") %></a></p>
         <p><a href="/wp-content/plugins/programa/data/programa-lectura-facil.pdf" class="pdf" target="_blank">Programa de lectura fácil</a></p>
-        <p><a href="/wp-content/uploads/2015/11/Programa_Cultura_Comunicacion_Podemos.pdf" class="pdf" target="_blank"><%= i18n.__("Programa de Cultura y Comunicación") %></a></p>
+        <p><a href="/wp-content/plugins/programa/data/programa-cultura-comunicacion-podemos.pdf" class="pdf" target="_blank"><%= i18n.__("Programa de Cultura y Comunicación") %></a></p>
 
         <h3><i class="fa fa-book"></i> <%= i18n.__("Temas") %></h3>
         <div class="categoria-propuestas">
@@ -209,7 +213,7 @@
   for (i=0; i<medidas.length; i++) {
     $('.medidas-programa').hide();
     $('#medida-'+medidas[i]).fadeIn(function() {
-      $(this).find('.descripcion-medida').delay(1000).slideDown();
+      $(this).find('.descripcion-medida').delay(800).slideDown();
     });
   }
   var temas = dame_temas_url();
